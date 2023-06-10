@@ -177,12 +177,12 @@ class LTRTrainer(BaseTrainer):
 
         if i % self.settings.print_interval == 0 or i == loader.__len__():
             print_str = '[%s: %d, %d / %d] ' % (loader.name, self.epoch, i, loader.__len__())
-            print_str += 'FPS: %.1f (%.1f)  ,  ' % (average_fps, batch_fps)
+            print_str += 'FPS: %.1f (%.1f), ' % (average_fps, batch_fps)
 
             # 2021.12.14 add data time print
-            print_str += 'DataTime: %.3f (%.3f)  ,  ' % (self.avg_date_time / self.num_frames * batch_size, self.avg_gpu_trans_time / self.num_frames * batch_size)
-            print_str += 'ForwardTime: %.3f  ,  ' % (self.avg_forward_time / self.num_frames * batch_size)
-            print_str += 'TotalTime: %.3f  ,  ' % ((current_time - self.start_time) / self.num_frames * batch_size)
+            print_str += 'DataTime: %.3f (%.3f), ' % (self.avg_date_time / self.num_frames * batch_size, self.avg_gpu_trans_time / self.num_frames * batch_size)
+            print_str += 'ForwardTime: %.3f, ' % (self.avg_forward_time / self.num_frames * batch_size)
+            print_str += 'TotalTime: %.3f, ' % ((current_time - self.start_time) / self.num_frames * batch_size)
             # print_str += 'DataTime: %.3f (%.3f)  ,  ' % (self.data_read_done_time - prev_frame_time_backup, self.data_to_gpu_time - self.data_read_done_time)
             # print_str += 'ForwardTime: %.3f  ,  ' % (current_time - self.data_to_gpu_time)
             # print_str += 'TotalTime: %.3f  ,  ' % (current_time - prev_frame_time_backup)
@@ -190,7 +190,7 @@ class LTRTrainer(BaseTrainer):
             for name, val in self.stats[loader.name].items():
                 if (self.settings.print_stats is None or name in self.settings.print_stats):
                     if hasattr(val, 'avg'):
-                        print_str += '%s: %.5f  ,  ' % (name, val.avg)
+                        print_str += '%s: %.5f, ' % (name, val.avg)
                     # else:
                     #     print_str += '%s: %r  ,  ' % (name, val)
 

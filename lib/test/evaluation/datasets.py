@@ -25,6 +25,8 @@ dataset_dict = dict(
     tnl2k=DatasetInfo(module=pt % "tnl2k", class_name="TNL2kDataset", kwargs=dict()),
     lasot_extension_subset=DatasetInfo(module=pt % "lasotextensionsubset", class_name="LaSOTExtensionSubsetDataset",
                                        kwargs=dict()),
+    lmd_tship=DatasetInfo(module=pt % "lmd_tship", class_name="LMD_TShipDataset", kwargs=dict(split='protocol1')),
+    lmd_tship_test=DatasetInfo(module=pt % "lmd_tship", class_name="LMD_TShipDataset", kwargs=dict(split='protocol2')),
 )
 
 
